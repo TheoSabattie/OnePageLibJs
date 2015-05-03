@@ -2,7 +2,10 @@ define(['libs/page'], function (Page) {
     var home = new Page({
         name : "home",
         pathFile : "scripts/pages/home.html",
-        setListener : function (){
+        init : function (){
+            console.log('Starter de page')
+        },
+        onRemove : function (){
         }
     });
     

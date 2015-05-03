@@ -5,32 +5,34 @@ define(['libs/query'], function (query){
         this.name      = pParams.name;
         this.pathFile  = pParams.pathFile;
         this.$content;
-        this.setListener = pParams.setListener;
+        this.init        = pParams.init;
+        this.onRemove    = pParams.onRemove;
     }
 
     Page.prototype.set$Content = function (data){
         this.$content = $(data);
     }
 
-    Page.prototype.load = function(){
+    Page.prototype.load = function(pFunctionOnLoad){
         var that = this;
         query.getFile({
             url : this.pathFile,
             dataType : "html",
             sucessFunction : function(data){
                 that.set$Content(data);
+                pFunctionOnLoad();
             }
         });
     }
 
     Page.prototype.append = function(){
         $('body').append(this.$content);
-        this.setListener();
+        this.init();
     }
     
     Page.prototype.remove = function (){
         $('body').remove(this.$content);
-        //TODO : suppression des listeners
+        this.onRemove();
     }
     
     return Page;
