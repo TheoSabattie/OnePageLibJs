@@ -1,3 +1,7 @@
+/**
+ * @author ilicos, Théo S.
+ */
+
 define([], function () {
     var listener = {};
     
