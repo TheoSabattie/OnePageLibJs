@@ -1,9 +1,5 @@
-require(["libs/pagemanager", "pages/home"], function (pageManager, home){
+require(["libs/pagemanager", "pages/home", "pages/pageTest"], function (pageManager, home, pageTest){
     console.log('helloWorld');
     
-    pageManager.addPages(home);
-    pageManager.load();
-    setTimeout(function(){
-        pageManager.show('home');
-    }, 50);
+    pageManager.init([home, pageTest], home);
 });
