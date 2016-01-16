@@ -27,7 +27,7 @@ define([], function() {
             url     : pParams.url,
             data    : pParams.data
         }).done(function(data) {
-            pFunction(data);
+            pParams.callBack(data);
         }).fail(function() {
             console.log('Send Data failed at : ' + pParams.url);
         });
